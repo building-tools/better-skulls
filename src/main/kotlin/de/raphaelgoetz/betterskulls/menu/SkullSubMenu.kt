@@ -4,6 +4,7 @@ import de.raphaelgoetz.betterskulls.data.SkullData
 import net.axay.kspigot.chat.KColors
 import net.axay.kspigot.chat.literalText
 import net.axay.kspigot.gui.GUIType
+import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
 import net.axay.kspigot.gui.kSpigotGUI
 import org.bukkit.Material
@@ -30,6 +31,10 @@ class SkullSubMenu(private val skulls: List<SkullData>, category: String) {
             )
 
             skullSubCategory.addContent(skulls)
+
+            transitionFrom = PageChangeEffect.SWIPE_VERTICALLY
+            transitionTo = PageChangeEffect.SWIPE_VERTICALLY
+
             compoundScroll(
                 Slots.RowSixSlotOne,
                 ItemStack(Material.ARROW), skullSubCategory, scrollTimes = 6
