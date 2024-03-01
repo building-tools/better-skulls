@@ -1,5 +1,6 @@
 package de.raphaelgoetz.betterskulls.manager
 
+import de.raphaelgoetz.betterskulls.data.CategoryData
 import de.raphaelgoetz.betterskulls.data.SkullData
 import net.axay.kspigot.chat.KColors
 import net.axay.kspigot.chat.literalText
@@ -16,10 +17,12 @@ import java.util.*
 
 class SkullManager {
 
-    val mutableMap: Map<String, List<SkullData>>
+    val skullData: Map<String, List<SkullData>>
+    val categoryData: Map<String, CategoryData>
 
     init {
-        this.mutableMap = readSkullData()
+        this.skullData = readSkullData()
+        this.categoryData = createCategories()
     }
 
     private fun readSkullData(): Map<String, List<SkullData>> {
@@ -35,6 +38,15 @@ class SkullManager {
         }
 
         return map;
+    }
+
+    private fun createCategories(): Map<String, CategoryData> {
+        val map = mutableMapOf<String, CategoryData>()
+        this.skullData.forEach { entry: Map.Entry<String, List<SkullData>> ->
+            map[entry.key] = CategoryData(entry.key, entry.value[0].head)
+        }
+
+        return map
     }
 
     private fun convertFromString(string: String): SkullData {
