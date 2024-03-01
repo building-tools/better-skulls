@@ -1,0 +1,4 @@
+name: BetterSkulls
+version: '${version}'
+main: de.raphaelgoetz.betterskulls.BetterSkulls
+api-version: '1.20'
