@@ -1,21 +1,21 @@
 package de.raphaelgoetz.betterskulls
 
+import de.raphaelgoetz.betterskulls.command.OpenSearchMenu
 import de.raphaelgoetz.betterskulls.command.OpenSkullMenu
 import de.raphaelgoetz.betterskulls.manager.SkullManager
-import org.bukkit.plugin.java.JavaPlugin
+import net.axay.kspigot.main.KSpigot
 
-class BetterSkulls : JavaPlugin() {
+class BetterSkulls : KSpigot() {
 
-    override fun onEnable() {
+    override fun startup() {
         val currentTime = System.currentTimeMillis()
         println("Initializing BetterSkulls")
 
         val manager = SkullManager()
-        println("BetterSkulls took " + System.currentTimeMillis().minus(currentTime))
+        println("BetterSkulls took " + System.currentTimeMillis().minus(currentTime) + " milliseconds")
 
-        getCommand("skulls")?.setExecutor(OpenSkullMenu(manager))
+        getCommand("skull")?.setExecutor(OpenSkullMenu(manager))
+        getCommand("skullsearch")?.setExecutor(OpenSearchMenu(manager))
     }
-
-    override fun onDisable() {}
 
 }
