@@ -6,5 +6,6 @@ data class SkullData(
         val category: String,
         val id: Int,
         val name: String,
-        val head: ItemStack
+        val head: ItemStack,
+        val query: String
 )

@@ -12,13 +12,20 @@ import net.axay.kspigot.gui.openGUI
 class SkullMenu(private val skullManager: SkullManager) {
 
     val skullMenu = kSpigotGUI(GUIType.SIX_BY_NINE) {
-        title = literalText("SkullMenu") {
+
+        var skullAmount = 0;
+
+       skullManager.skullData.forEach { entry ->
+           skullAmount += entry.value.size
+       }
+
+        title = literalText("SkullMenu ($skullAmount)") {
             color = KColors.GRAY
         }
 
         page(1) {
             val categories = createRectCompound<CategoryData>(
-                Slots.RowOneSlotOne, Slots.RowSixSlotEight,
+                Slots.RowOneSlotOne, Slots.RowSixSlotNine,
 
                 iconGenerator = {
                     it.item

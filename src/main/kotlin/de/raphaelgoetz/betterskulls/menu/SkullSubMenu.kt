@@ -13,13 +13,13 @@ import org.bukkit.inventory.ItemStack
 class SkullSubMenu(private val skulls: List<SkullData>, category: String) {
 
     val skullSubMenu = kSpigotGUI(GUIType.SIX_BY_NINE) {
-        title = literalText("SkullMenu$category (${skulls.size})") {
+        title = literalText("SkullMenu $category (${skulls.size})") {
             color = KColors.GRAY
         }
 
         page(1) {
             val skullSubCategory = createRectCompound<SkullData>(
-                Slots.RowOneSlotOne, Slots.RowFiveSlotNine,
+                Slots.RowTwoSlotOne, Slots.RowSixSlotNine,
 
                 iconGenerator = {
                     it.head
@@ -36,13 +36,17 @@ class SkullSubMenu(private val skulls: List<SkullData>, category: String) {
             transitionTo = PageChangeEffect.SWIPE_VERTICALLY
 
             compoundScroll(
-                Slots.RowSixSlotOne,
+                Slots.RowOneSlotNine,
                 ItemStack(Material.ARROW), skullSubCategory, scrollTimes = 6
             )
             compoundScroll(
-                Slots.RowSixSlotNine,
+                Slots.RowOneSlotOne,
                 ItemStack(Material.ARROW), skullSubCategory, scrollTimes = 6, reverse = true
             )
+
+            onClose {
+                skullSubCategory.removeContent(skulls)
+            }
         }
     }
 }
