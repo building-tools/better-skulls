@@ -1,5 +1,6 @@
 package de.raphaelgoetz.betterskulls
 
+import de.raphaelgoetz.betterskulls.command.GetPlayerSkull
 import de.raphaelgoetz.betterskulls.command.OpenSearchMenu
 import de.raphaelgoetz.betterskulls.command.OpenSkullMenu
 import de.raphaelgoetz.betterskulls.manager.SkullManager
@@ -16,6 +17,7 @@ class BetterSkulls : KSpigot() {
 
         getCommand("skull")?.setExecutor(OpenSkullMenu(manager))
         getCommand("skullsearch")?.setExecutor(OpenSearchMenu(manager))
+        getCommand("getskull")?.setExecutor(GetPlayerSkull(manager))
     }
 
 }

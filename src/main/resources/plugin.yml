@@ -11,3 +11,5 @@ commands:
     description: Open
   skullsearch:
     description: Openm
+  getskull:
+    description: Oere
