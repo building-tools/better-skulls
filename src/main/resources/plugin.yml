@@ -8,8 +8,8 @@ website: https://uroria.com
 
 commands:
   skull:
-    description: Open
+    description: Opens an overview of all categories.
   skullsearch:
-    description: Openm
+    description: Opens an inventory of the requested skulls.
   getskull:
-    description: Oere
+    description: Gets a skull of the requested player's name.
