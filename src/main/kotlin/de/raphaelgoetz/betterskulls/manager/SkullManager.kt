@@ -11,8 +11,8 @@ import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.SkullMeta
+
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
 import java.net.URL
 import java.util.*
@@ -35,14 +35,12 @@ class SkullManager {
 
         var line: String? = reader.readLine()
         while (line != null) {
-            println(line)
             val skullData = convertFromString(line)
             map.putIfAbsent(skullData.category, mutableListOf())
             map[skullData.category]?.add(skullData)
             line = reader.readLine()
         }
 
-        println(map.size)
         return map;
     }
 

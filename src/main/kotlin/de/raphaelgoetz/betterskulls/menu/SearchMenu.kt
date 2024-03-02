@@ -15,7 +15,7 @@ class SearchMenu(
 
     val searchMenu = kSpigotGUI(GUIType.SIX_BY_NINE) {
 
-        title = literalText("SkullMenu (${skulls.size})") {
+        title = literalText("Found ${skulls.size} skulls") {
             color = KColors.GRAY
         }
 
