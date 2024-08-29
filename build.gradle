@@ -23,7 +23,7 @@ dependencies {
     compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation "net.axay:kspigot:1.20.3"
-    implementation "net.kyori:adventure-api:4.16.0"
+    implementation "net.kyori:adventure-api:4.17.0"
 }
 
 def targetJavaVersion = 17
